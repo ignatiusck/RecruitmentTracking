@@ -3,14 +3,14 @@ using log4net.Config;
 
 namespace MainLogger
 {
-    class Logger<T>
+    class Log4net<T>
     {
         private delegate void LoggerList(string Message);
         private readonly ILog Log = LogManager.GetLogger(typeof(T));
         private readonly List<LoggerList> logger;
         private bool initialized;
 
-        public Logger()
+        public Log4net()
         {
             logger = new(){
                 Log.Info,
