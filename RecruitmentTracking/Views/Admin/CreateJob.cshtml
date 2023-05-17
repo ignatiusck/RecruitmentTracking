@@ -1,0 +1,82 @@
+    <div class="d-flex w-100">
+      <aside
+        class="d-flex justify-content-center py-5 align-items-center vh-100"
+        style="width: 20%"
+      >
+        <nav class="nav nav-pills flex-column text-center vh-100 py-5">
+          <h1 class="mb-5">MENU</h1>
+          <div
+            class="d-flex flex-column justify-content-around"
+            style="height: 350px"
+          >
+            <div>
+              <a class="nav-link" href="administration.html">Administration</a>
+            </div>
+            <div>
+                <a class="nav-link" href="hr_interview.html">HR Interview</a>
+              </div>
+              <div>
+                <a class="nav-link " href="user_interview.html">User Interview</a>
+              </div>
+              <div>
+                <a class="nav-link" href="offering.html">Offering</a>
+              </div>
+          </div>
+        </nav>
+      </aside>
+      <main class="p-5" style="height: 100vh; width: 80%">
+        <header class="mb-5">
+          <div class="d-flex justify-content-between">
+            <h3>Software Engineer</h3>
+            <div
+              class="d-flex justify-content-around align-items-center"
+              style="width: 150px"
+            >
+              <span>HR Name</span>
+              <div
+                class="rounded-circle"
+                style="width: 40px; height: 40px; background-color: aquamarine"
+              >
+            </div>
+            </div>
+          </div>
+        </header>
+        <!-- content -->
+          
+        <div class="py-2">
+            <form>
+            @using (Html.BeginForm("HRInterview", "Admin", FormMethod.Post))
+            {
+                <div class="mb-3">
+                  <label for="JobPosition" class="form-label">Job Position</label>
+                  @Html.TextBoxFor(m => m.JobPosition, new { @class="form-control"})
+                </div>
+                <div class="mb-3">
+                  <label for="JobDescription" class="form-label">Job Description</label>
+                  @Html.TextAreaFor(m => m.JobDescription, new { @class="form-control"})
+                </div>
+                <div class="mb-3">
+                    <label for="JobRequirement" class="form-label">Job Requirement</label>
+                   @Html.TextBoxFor(m => m.JobRequirement, new { @class="form-control"})
+                </div>
+                <div class="mb-3">
+                    <label for="JobRequirement" class="form-label">Office Location</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Select office location</option>
+                        <option value="Salatiga">Salatiga</option>
+                        <option value="Semarang">Semarang</option>
+                        <option value="Bandung">Bandung</option>
+                    </select>
+                    @* @Html.DropDownListFor(m => m.OfficeLocation, new SelectList(Model.OfficeLocations), "Select office location", new { @class = "form-control" }) *@
+
+                </div>
+                }
+              </form>
+        </div>
+        
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+      
+      </main>
+    </div>
