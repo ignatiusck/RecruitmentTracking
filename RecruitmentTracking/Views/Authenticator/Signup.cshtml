@@ -22,7 +22,7 @@
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        @Html.PasswordFor(m => m.Password, new { @class="form-control"})
+                        @Html.PasswordFor(m => m.Password, new { @class="form-control",  @type = "password", required = "required"})
                     </div>
 
                     <div class="mb-3">

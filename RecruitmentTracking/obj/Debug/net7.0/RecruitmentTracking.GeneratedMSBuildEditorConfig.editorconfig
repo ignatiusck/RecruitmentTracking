@@ -9,49 +9,81 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RecruitmentTracking
 build_property.RootNamespace = RecruitmentTracking
-build_property.ProjectDir = /home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/
+build_property.ProjectDir = c:\Nabila\Assignment\RecruitmentTracking\RecruitmentTracking\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking
+build_property.MSBuildProjectDirectory = c:\Nabila\Assignment\RecruitmentTracking\RecruitmentTracking
 build_property._RazorSourceGeneratorDebug = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/Admin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Admin/Administration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5pc3RyYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/Authenticator/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aGVudGljYXRvci9Mb2dpbi5jc2h0bWw=
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Admin/CreateJob.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlSm9iLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/Authenticator/Signup.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aGVudGljYXRvci9TaWdudXAuY3NodG1s
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Admin/HRInterview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSFJJbnRlcnZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Admin/Offering.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT2ZmZXJpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Admin/TemplateEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGVtcGxhdGVFbWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Admin/UserInterview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlckludGVydmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Authenticator/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRvclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Authenticator/Signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRvclxTaWdudXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-ozv69qn49q
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Candidate/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Candidate/TrackJobs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRlXFRyYWNrSm9icy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Nabila/Assignment/RecruitmentTracking/RecruitmentTracking/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-bk9asiu30y
