@@ -11,24 +11,16 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace RecruitmentTracking.Controllers;
 
-public class AuthenticatorController : Controller
+public class AuthenticationController : Controller
 {
     private readonly DataContex _db = new();
     private readonly ILog _log;
     private readonly IConfiguration _configuration;
 
-    public AuthenticatorController(IConfiguration configuration)
+    public AuthenticationController(IConfiguration configuration)
     {
-        _log = LogManager.GetLogger(typeof(AuthenticatorController));
+        _log = LogManager.GetLogger(typeof(AuthenticationController));
         _configuration = configuration;
-    }
-
-    [HttpGet("/Login")]
-    public IActionResult Login()
-    {
-        ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
-
-        return View();
     }
 
     [HttpPost]
@@ -40,7 +32,7 @@ public class AuthenticatorController : Controller
         return RedirectToAction("Index", "Candidate");
     }
 
-    [HttpGet("/Signup")]
+    [HttpGet]
     public IActionResult Signup()
     {
         ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
@@ -49,23 +41,21 @@ public class AuthenticatorController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Signups(CandidateSignup request)
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Signup([Bind("Name,Email,Password,ConfirmPassword")] CandidateSignup request)
     {
-        if (request.Password != request.ConfirmPassword)
+        ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
+
+        if (!ModelState.IsValid)
         {
-            TempData["warning"] = "passwords you entered do not match. ";
-            return Redirect("/Signup");
-        }
-        if (request.Password!.Length < 6 || request.Password! == null)
-        {
-            TempData["warning"] = "Password must be at least 6 characters";
-            return Redirect("/Signup");
+            TempData["warning"] = "failed Sign Up";
+            return View(request);
         }
 
         if (_db.Candidates!.Any(a => a.Email == request.Email))
         {
             TempData["warning"] = "Email is already in use.";
-            return Redirect("/Signup");
+            return View(request);
         }
 
         string HassedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
@@ -83,9 +73,25 @@ public class AuthenticatorController : Controller
         return RedirectToAction("Login");
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Logins(LoginRequest request)
+    [HttpGet]
+    public IActionResult Login()
     {
+        ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
+
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login([Bind("Email,Password")] LoginRequest request)
+    {
+        ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
+
+        if (!ModelState.IsValid)
+        {
+            TempData["warning"] = "failed Login";
+            return View(request);
+        }
+
         Candidate objCandidate = (await _db.Candidates!.FirstOrDefaultAsync(a => a.Email == request.Email))!;
         if (objCandidate != null && BCrypt.Net.BCrypt.Verify(request.Password, objCandidate.Password))
         {
@@ -123,7 +129,7 @@ public class AuthenticatorController : Controller
         }
 
         TempData["warning"] = "User not found";
-        return Redirect("/Login");
+        return View(request);
     }
 
     private string CreateTokenAdmin(Admin objAdmin)

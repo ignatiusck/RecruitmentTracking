@@ -27,37 +27,6 @@ public class CandidateController : Controller
     }
 
     [HttpGet]
-    public IActionResult Index()
-    {
-        ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
-
-        if (ViewBag.IsAuth)
-        {
-            string token = Request.Cookies["ActionLogin"]!;
-            JwtSecurityToken dataJwt = new JwtSecurityTokenHandler().ReadJwtToken(token);
-            ViewBag.IsAdmin = dataJwt.Claims.Count() != 2 ? "admin" : null;
-        }
-
-        List<JobData> listJob = new();
-        foreach (Job job in _db.Jobs!.Where(j => j.IsJobAvailable).ToList())
-        {
-            JobData data = new()
-            {
-                JobId = job.JobId,
-                JobTitle = job.JobTitle,
-                JobDescription = job.JobDescription,
-                JobRequirement = job.JobRequirement,
-                Location = job.Location,
-                JobPostedDate = job.JobPostedDate,
-                JobExpiredDate = job.JobExpiredDate,
-            };
-
-            listJob.Add(data);
-        }
-        return View(listJob);
-    }
-
-    [HttpGet("/Profile")]
     public async Task<IActionResult> Profile()
     {
         ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
@@ -99,51 +68,7 @@ public class CandidateController : Controller
         return Redirect("/Profile");
     }
 
-    private string GetEmail(string token)
-    {
-        ClaimsPrincipal claimsPrincipal = new JwtSecurityTokenHandler()
-            .ValidateToken(token, new TokenValidationParameters
-            {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                                    _configuration.GetSection("AppSettings:TokenCandidate").Value!
-                                    )),
-                ValidateIssuer = false,
-                ValidateAudience = false,
-            }, out _);
-
-        return claimsPrincipal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)!.Value!;
-    }
-
-    [HttpGet("/DetailJob/{id}")]
-    public IActionResult DetailJob(int id)
-    {
-        ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
-
-        if (ViewBag.IsAuth)
-        {
-            string token = Request.Cookies["ActionLogin"]!;
-            JwtSecurityToken dataJwt = new JwtSecurityTokenHandler().ReadJwtToken(token);
-            ViewBag.IsAdmin = dataJwt.Claims.Count() != 2 ? "admin" : null;
-        }
-
-        Job objJob = _db.Jobs!.Find(id)!;
-
-        JobData data = new()
-        {
-            JobId = objJob.JobId,
-            JobTitle = objJob.JobTitle,
-            JobDescription = objJob.JobDescription,
-            JobRequirement = objJob.JobRequirement,
-            Location = objJob.Location,
-            JobPostedDate = objJob.JobPostedDate,
-            JobExpiredDate = objJob.JobExpiredDate,
-        };
-
-        return View(data);
-    }
-
-    [HttpGet("/ApplyJob/{id}")]
+    [HttpGet]
     public IActionResult ApplyJob(int id)
     {
         ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
@@ -215,7 +140,7 @@ public class CandidateController : Controller
         return Redirect("/TrackJob");
     }
 
-    [HttpGet("/TrackJob")]
+    [HttpGet]
     public async Task<IActionResult> TrackJob()
     {
         ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
@@ -238,9 +163,23 @@ public class CandidateController : Controller
             };
             listData.Add(status);
         }
-
-
         return View(listData);
+    }
+
+    private string GetEmail(string token)
+    {
+        ClaimsPrincipal claimsPrincipal = new JwtSecurityTokenHandler()
+            .ValidateToken(token, new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                                    _configuration.GetSection("AppSettings:TokenCandidate").Value!
+                                    )),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+            }, out _);
+
+        return claimsPrincipal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)!.Value!;
     }
 
     private string GetStatusApplication(string status)

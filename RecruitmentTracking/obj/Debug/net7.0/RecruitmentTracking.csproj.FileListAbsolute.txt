@@ -205,3 +205,6 @@ E:/bootcamp_formulatrix/Project_Recruitment_Tracking/RecruitmentTracking2/Recrui
 E:/bootcamp_formulatrix/Project_Recruitment_Tracking/RecruitmentTracking2/RecruitmentTracking/RecruitmentTracking/obj/Debug/net7.0/RecruitmentTracking.pdb
 e:/bootcamp_formulatrix/Project_Recruitment_Tracking/RecruitmentTracking2/RecruitmentTracking/RecruitmentTracking/obj/Debug/net7.0/RecruitmentTracking.genruntimeconfig.cache
 e:/bootcamp_formulatrix/Project_Recruitment_Tracking/RecruitmentTracking2/RecruitmentTracking/RecruitmentTracking/obj/Debug/net7.0/ref/RecruitmentTracking.dll
+/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/bin/Debug/net7.0/Humanizer.dll
+/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/ignatius/Desktop/Project Team/RecruitmentTracking/RecruitmentTracking/bin/Debug/net7.0/Mono.TextTemplating.dll

@@ -57,7 +57,7 @@ public class AdminController : Controller
         return View(listJob);
     }
 
-    [HttpGet("/JobClosed")]
+    [HttpGet]
     public async Task<IActionResult> JobClosed()
     {
         ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
@@ -89,130 +89,6 @@ public class AdminController : Controller
         return View(listJob);
     }
 
-    [HttpPost]
-    public async Task<IActionResult> CloseTheJob(int id)
-    {
-        Job objJob = _db.Jobs!.Find(id)!;
-
-        objJob.IsJobAvailable = false;
-        await _db.SaveChangesAsync();
-
-        TempData["success"] = "Successfully Close a Job";
-        return Redirect("/Admin");
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> ActivateTheJob(int id)
-    {
-        Job objJob = _db.Jobs!.Find(id)!;
-
-        objJob.IsJobAvailable = true;
-        await _db.SaveChangesAsync();
-
-        TempData["success"] = "Successfully Activate a Job";
-        return Redirect("/JobClosed");
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> DeleteJob(int id)
-    {
-        Job objJob = _db.Jobs!.Find(id)!;
-
-        _db.Jobs.Remove(objJob);
-        await _db.SaveChangesAsync();
-
-        TempData["success"] = "Successfully Delete a Job";
-        return Redirect("/JobClosed");
-    }
-
-    [HttpGet("/CreateJob")]
-    public IActionResult CreateJob()
-    {
-        ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
-        ViewBag.IsAdmin = "admin";
-
-        string token = Request.Cookies["ActionLogin"]!;
-        GetDataAdmin(token, out _, out string adminName);
-
-        ViewBag.AdminName = adminName;
-
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> CreateJobs(JobCreate objJob)
-    {
-        string token = Request.Cookies["ActionLogin"]!;
-        GetDataAdmin(token, out string email, out _);
-
-        Admin admin = _db.Admins!.FirstOrDefault(a => a.Email == email)!;
-        Job newJob = new()
-        {
-            JobTitle = objJob.JobTitle,
-            JobDescription = objJob.JobDescription,
-            JobExpiredDate = objJob.JobExpiredDate,
-            JobRequirement = objJob.JobRequirement!.Replace("\r\n", "\n"),
-            JobPostedDate = DateTime.Now,
-            Location = objJob.Location,
-            IsJobAvailable = true,
-            Admin = admin,
-        };
-        _db.Jobs!.Add(newJob);
-        await _db.SaveChangesAsync();
-
-        _log.Info("Job Added.");
-
-        TempData["success"] = "Successfully Created a Job";
-        return Redirect("/Admin");
-    }
-
-    [HttpGet("Admin/EditJob/{id}")]
-    public IActionResult EditJob(int id)
-    {
-        ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
-        ViewBag.IsAdmin = "admin";
-
-        string token = Request.Cookies["ActionLogin"]!;
-        GetDataAdmin(token, out _, out string adminName);
-
-        ViewBag.AdminName = adminName;
-
-        Job objJob = _db.Jobs!.FirstOrDefault(j => j.JobId == id)!;
-
-        JobData data = new()
-        {
-            JobId = objJob.JobId,
-            JobTitle = objJob.JobTitle,
-            JobDescription = objJob.JobDescription,
-            JobRequirement = objJob.JobRequirement!.Replace("\r\n", "\n"),
-            Location = objJob.Location,
-            JobPostedDate = objJob.JobPostedDate,
-            JobExpiredDate = objJob.JobExpiredDate,
-        };
-
-        return View(data);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> EditJobs(JobCreate objJob)
-    {
-        string token = Request.Cookies["ActionLogin"]!;
-        GetDataAdmin(token, out string email, out _);
-
-        Job updateJob = _db.Jobs!.FirstOrDefault(j => j.JobId == objJob.JobId)!;
-        updateJob.JobTitle = objJob.JobTitle;
-        updateJob.JobDescription = objJob.JobDescription;
-        updateJob.JobExpiredDate = objJob.JobExpiredDate;
-        updateJob.JobRequirement = objJob.JobRequirement;
-        updateJob.Location = objJob.Location;
-
-        await _db.SaveChangesAsync();
-        _log.Info("Job Updated.");
-
-        TempData["success"] = "Successfully Edit a Job";
-        return Redirect("/Admin");
-    }
-
     private void GetDataAdmin(string token, out string email, out string name)
     {
         ClaimsPrincipal claimsPrincipal = new JwtSecurityTokenHandler()
@@ -230,7 +106,7 @@ public class AdminController : Controller
         name = claimsPrincipal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)!.Value!;
     }
 
-    [HttpGet("Admin/Administration/{id}")]
+    [HttpGet]
     public async Task<IActionResult> Administration(int id)
     {
         ViewBag.IsAuth = Request.Cookies["ActionLogin"]! != null;
