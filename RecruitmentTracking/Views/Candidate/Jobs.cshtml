@@ -3,53 +3,73 @@
     ViewData["Title"] = "Jobs";
 }
 
-  <body>
-
-    <!-- search bar -->
-    <div class="p-5 " style="background-color: lightgray; justify-content: center;">
-        <div class="container">
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <input type="text" class="form-control" placeholder="Search Job" aria-label="City"/>
-            </div>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" placeholder="Location" aria-label="State"/>
-            </div>
-            <div class="col-sm mb-3">
-              <button type="button" class="btn btn-primary">Search</button>
-            </div>
-          </div>
+     <!-- search bar -->
+    <div class="pt-32 pb-20 px-5 bg-zinc-600">
+      <div class="w-full container flex justify-between space-y-3 flex-col lg:space-x-3 lg:space-y-0 lg:flex-row">
+        <div class="w-full">
+          <input type="text" class="form-control  rounded-lg" placeholder="Search Job" aria-label="City" />
         </div>
+        <div class="dropdown w-full">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Choose location</option>
+            <option value="Bandung">Bandung</option>
+            <option value="Salatiga">Salatiga</option>
+            <option value="Semarang">Semarang</option>
+          </select>
+        </div>
+        <button type="button" class="w-1/3 btn bg-amber-500 text-white hover:bg-amber-600 rounded-lg">Search<i
+            class="bi bi-search mx-2"></i></i></button>
       </div>
+    </div>
 
     <!-- job list -->
-    @* @foreach(var job in Model)
-    {
-        <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
-                <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                    <h5 class="card-title"> Job Title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div>
-                        <a type="button" class="btn btn-primary" href="apply_job.html">Apply</a>
-                        <a type="button" class="btn btn-outline-primary" href="detail_job.html" >Details</a>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>  
+    <div class="container mb-3">
+      <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+        @foreach (var job in Model){
+        <div class="col">
+          <div class="card h-[350px] w-full">
+            <div class="card-header">
+              <h5 class="font-medium text-xl">@job.JobTitle</h5>
+                <span class="text-gray-600 flex items-center space-x-1">
+                <i class="bi bi-geo-alt"></i>
+                <h7 class="card-text">Location: @job.Location</h7>
+              </span>
+              </div>
+              <div class="card-body flex flex-column justify-between">
+              @* <h6>Employee count: @job.CandidateCout</h6> *@
+              <div class="card-text">
+                <p class="line-clamp-5"> @job.JobDescription</p>
+              </div>
+              <div class="flex justify-end mt-3 space-x-2">
+                @* @if(User.Identity.IsAuthenticated)
+                { *@
+                  <a type="button" class="btn bg-amber-500 text-white rounded-lg hover:bg-amber-600" href="@Url.Action("ApplyJob", new { id =job.JobId })">Apply</a>
+                @* }
+                else
+                {
+                  <a type="button" class="btn btn-primary" href="/Login">Apply</a>
+                } *@
+                <a type="button" class="btn border-2 border-amber-500 text-amber-500 rounded-lg hover:bg-amber-500 hover:text-white" href="@Url.Action("DetailJob", new { id = job.JobId })" >Details</a>
+              </div>
+            </div>
+            <div class="card-footer text-muted">
+            <div class="flex justify-between">
+              <span class="flex space-x-1 items-center">
+                <i class="bi bi-person-plus"></i>
+                <h7 class="card-text">Opening Position :</h7>
+              </span>
+              <span class="flex space-x-1 items-center">
+                <i class="bi bi-person"></i>
+                <h7 class="card-text">Total Applicant : @job.CandidateCout</h7>
+              </span>
+            </div>
+            <div class="mt-2">
+              <i class="bi bi-clock"></i>
+              <h7 class="card-text">Posted Time</h7>
+            </div>
+          </div>
+          </div>
         </div>
-    } *@
-   
-    <!-- footer -->
-    @* <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-          <span class="mb-3 mb-md-0 text-muted">© 2023 Company, Inc</span>
-        </div>
-    </footer> *@
-  </body>
+        }
+      </div>
+    </div>

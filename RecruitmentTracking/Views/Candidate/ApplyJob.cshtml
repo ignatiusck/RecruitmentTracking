@@ -4,37 +4,30 @@
     ViewData["Title"] = "Apply Job";
 }
 
-      <body>
           <!-- content for apply job form -->
-          <div class="container col-md-6 offset-md-4 shadow-lg p-5 mb-5 bg-white rounded" style="background-color:#f8f9fa ">
-            <div class="mb-3">
-              <p class="h6">Apply Job : </p>
-              <p class="h4 text-muted text-body-secondary">@ViewBag.JobTitle</p>
-              <hr/>
+           <div class="pt-5 pb-20 px-5">
+            
+            <div class="container shadow p-3 mb-5 bg-white rounded mt-5" style="background-color:#f8f9fa ">
+              <p class="text-xl">Apply Job :</p>
+            
+              <p class="text-3xl font-bold mb-3 mt-3">@ViewBag.JobTitle</p>
+            <hr/>
               @using(Html.BeginForm("ApplyJobs", "Candidate", FormMethod.Post, new { enctype = "multipart/form-data"}))
               {
                  <input type="hidden" name="JobId" value="@ViewBag.JobId" />
 
-                <div>
-                <div class="mb-3">
+                <div class="mt-5">
                     <label for="name" class="form-label">Full Name</label>
                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control"})
-                </div>
-
-                <div class="mb-3">
+              
                     <label for="phone" class="form-label">Phone Number</label>
-                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control"})
-                </div>
-
-                <div class="mb-3">
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", type = "number" })
+                
                     <label for="education" class="form-label">Last Education</label>
                     @Html.TextBoxFor(m => m.LastEducation, new { @class = "form-control"})
-                </div>
-
-                <div class="mb-3">
-                    <label for="GPA" class="form-label">GPA</label>
-                    @Html.TextBoxFor(m => m.GPA, new { @class = "form-control"})
-                </div>
+               
+                   <label for="GPA" class="form-label">GPA</label>
+                    @Html.TextBoxFor(m => m.GPA, new { @class = "form-control rounded-lg", type = "number", step = "0.01", min = "0", max = "4" })
 
                 @* <label for="file" class="form-label mt-3">Upload CV/Resume</label>
                   @Html.TextBoxFor(m => m.FileCV, new { @class = "form-control" ,@type = "file"}) *@
@@ -42,26 +35,14 @@
                 @Html.TextBoxFor(m => m.FileCV, new { @class = "form-control", @type = "file", @id = "file-input", @required = "required" })
                 @* <input type="file" class="form-control" id="file" name="file"> *@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                  <button type="submit" class="btn bg-amber-500 text-white rounded-lg hover:bg-amber-600">Submit</button>
                 </div>
                     
                 </div>
               }
             </div>
-
-
           </div>
-        <!-- footer -->
-        @* <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-              <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-              </a>
-              <span class="mb-3 mb-md-0 text-muted">© 2023 Company, Inc</span>
-            </div>
-        </footer> *@
-      </body>
-
+    
 <script>
   // Ambil elemen input file
   var fileInput = document.getElementById("file-input");
