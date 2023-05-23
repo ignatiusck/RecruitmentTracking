@@ -21,7 +21,7 @@
             <li class="px-4 py-2 text-white"> <a href="index.html">@ViewBag.AdminName</a></li>
             <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-house mr-3"></i><a href="/Admin">Home</a></li>
             <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-clock-history mr-3"></i><a href="recruitment_process.html">Recruitment Process</a></li>
-            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-clock-history mr-3"></i><a href="/Admin/CreateJob">Create Job</a></li>
+            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-list-check mr-3"></i><a href="/Admin/CreateJob">Create Job</a></li>
             <li class="px-4 py-2 text-white border-y-2 border-zinc-700">Contact</li>
             <li class="btn bg-red-500 text-white hover:bg-red-600">Logout</li>
         </ul>
@@ -66,8 +66,8 @@
                     </div>
                     <div class="d-flex card-text justify-content-between align-items-center text-muted"
                       style="font-size: .875em;">
-                      <p class="list-inline-item" style="padding-left: 2px;">Posted Time : @item.JobPostedDate</p>
-                      <p class="list-inline-item"><i class="bi bi-geo-alt"></i>@item.Location</p>
+                      <p class="list-inline-item mx-1">Posted Time : @item.JobPostedDate</p>
+                      <p class="list-inline-item"><i class="bi bi-geo-alt"></i> @item.Location</p>
                     </div>
     
                   </div>
@@ -75,10 +75,10 @@
                     <div class="d-flex" style="padding-left: 10px;">
                         <a class="btn bg-yellow-500 text-white hover:bg-yellow-600 rounded-lg me-2" href="@Url.Action("EditJob", "Admin", new { id = item.JobId })">Edit</a>
 
-                        <form action="/Admin/CloseTheJob" method="post" onsubmit="return confirm('Are you sure you want to close the registration?')">
-                            <input type="hidden" name="id" value= @item.JobId />
-                            <button class="btn bg-red-500 text-white hover:bg-red-600 rounded-lg me-3" type="submit">Close</button>
-                        </form>
+                        <form action="/Admin/ActivateTheJob" method="post">
+                              <input type="hidden" name="id" value= @item.JobId />
+                              <button class="btn bg-green-500 text-white hover:bg-green-600 rounded-lg me-2" type="submit">Activate</button>
+                          </form>
                      
                     </div>
                     <div class="container d-flex align-items-center p-2">
