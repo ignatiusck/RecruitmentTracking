@@ -7,27 +7,27 @@
   <div class = "container" style="justify-content: center; padding-top: 70pt;">
       <div class = "row" >
           <div class = "col-md-4 offset-md-4 shadow-lg p-3 mb-5 bg-white rounded">
-              <h4 style="text-align:center">Sign in to your account</h4>
+             <h4 style="text-align:center" class=" font-bold text-xl">Sign in to your account</h4>
 
                 @using (Html.BeginForm("Logins", "Authenticator", FormMethod.Post))
                 {
                   <div class="mb-3 mt-5">
-                    <label for="name" class="form-label">Email</label>
-                    @Html.TextBoxFor(m => m.Email, new { @class="form-control"})
+                    <label for="name" class="form-label text-muted">Email</label>
+                    @Html.TextBoxFor(m => m.Email, new { @class="form-control", Type="email"})
                     </div>
-                  <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    @Html.PasswordFor(m => m.Password, new { @class="form-control"})
+                  <div class="mb-2">
+                    <label for="password" class="form-label text-muted">Password</label>
+                    @Html.PasswordFor(m => m.Password, new { @class="form-control", Type="password"})
                   </div>
-                  <div class="mb-3">
-                      <a href = "forgot-password.php" style="text-decoration: none">Forgot password?</a>
+                  <div class="mb-2">
+                      <a class="text-sm text-muted" href = "forgot-password.php" style="text-decoration: none">Forgot password?</a>
                   </div>
                   <div class="d-grid gap-2">
-                      <button class="btn text-white bg-amber-500 hover:bg-amber-600 me-2 rounded-lg" type="submit">Sign in</button>
+                      <button class="btn text-white bg-amber-500 hover:bg-amber-600 me-2 rounded-lg mt-3" type="submit">Sign in</button>
                   </div>
                 }
                 <div>
-                  <p class = "mt-3">Don't have an account? <a asp-controller="Authenticator" asp-action="Signup" style="text-decoration: none">Sign up</a></p>
+                  <p class = "mt-3">Don't have an account? <a asp-controller="Authenticator" asp-action="Signup" >Sign up</a></p>
                 </div>
           </div>
       </div>

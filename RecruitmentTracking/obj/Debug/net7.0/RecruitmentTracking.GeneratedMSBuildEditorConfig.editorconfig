@@ -9,101 +9,105 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RecruitmentTracking
 build_property.RootNamespace = RecruitmentTracking
-build_property.ProjectDir = c:\xampp2\htdocs\RecruitmentTracking\RecruitmentTracking\
+build_property.ProjectDir = c:\xampp2\htdocs\xampp\RecruitmentTracking\RecruitmentTracking\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\xampp2\htdocs\RecruitmentTracking\RecruitmentTracking
+build_property.MSBuildProjectDirectory = c:\xampp2\htdocs\xampp\RecruitmentTracking\RecruitmentTracking
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/Administration.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/Administration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5pc3RyYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/CreateJob.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/CreateJob.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlSm9iLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/EditJob.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/EditJob.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEpvYi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/HRInterview.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/HRInterview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSFJJbnRlcnZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/Index.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/JobClosed.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/JobClosed.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSm9iQ2xvc2VkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/Offering.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/Offering.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT2ZmZXJpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/TemplateEmail.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/RecruitmentProcess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjcnVpdG1lbnRQcm9jZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/TemplateEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGVtcGxhdGVFbWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Admin/UserInterview.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/UserInterview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlckludGVydmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Authenticator/Login.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Authenticator/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRvclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Authenticator/Signup.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Authenticator/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRvclxTaWdudXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Candidate/ApplyJob.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Candidate/ApplyJob.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRlXEFwcGx5Sm9iLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Candidate/DetailJob.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Candidate/DetailJob.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRlXERldGFpbEpvYi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Candidate/Index.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Candidate/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Candidate/Jobs.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Candidate/Jobs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRlXEpvYnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Candidate/Profile.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Candidate/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRlXFByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Candidate/TrackJob.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Candidate/TrackJob.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRlXFRyYWNrSm9iLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Shared/Error.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Shared/_Notification.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Shared/_Notification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/_ViewImports.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/_ViewStart.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/xampp2/htdocs/RecruitmentTracking/RecruitmentTracking/Views/Shared/_Layout.cshtml]
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bk9asiu30y

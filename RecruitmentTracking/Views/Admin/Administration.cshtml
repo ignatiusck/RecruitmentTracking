@@ -1,115 +1,104 @@
-@model List<DataCandidateJobs>;
+@model JobData;
 
 @{
-  ViewData["Title"] = "Admin";
-
-  int counter = 1;
+    ViewData["Title"] = "Admin";
+    var dropdownOptions = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Salatiga", Text = "Salatiga" },
+        new SelectListItem { Value = "Semarang", Text = "Semarang" },
+        new SelectListItem { Value = "Bandung", Text = "Bandung" }
+    };
 }
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 <div class="d-flex w-100">
-      <aside
-        class="d-flex justify-content-center py-5 align-items-center vh-100"
-        style="width: 15%">
-        <nav class="nav nav-pills flex-column text-center vh-100 py-5">
-          <h5>Dashboard</h5>
-          <h6 class="mb-5 pb-5 text-muted">Admin</h6>
+    <aside
+    class="d-flex justify-content-center py-5 align-items-center vh-100"
+    style="width: 15%;"
+    >
+    <nav class="nav nav-pills flex-column text-center vh-100 py-5">
+        <h5 >Dashboard</h5>
+        <h6 class="mb-5 text-muted">Admin</h6>
 
-          <div
-            class="d-flex flex-column justify-content-around"
-            style="height: 200px">
-            <div>
-              <a class="nav-link active mb-3" href="/Admin/Administration"
-                >Administration</a
-              >
-            </div>
-            <div>
-              <a class="nav-link mb-3" href="/Admin/HRInterview">HR Interview</a>
-            </div>
-            <div>
-              <a class="nav-link mb-3" href="/Admin/UserInterview"
-                >User Interview</a
-              >
-            </div>
-            <div>
-              <a class="nav-link mb-3" href="/Admin/Offering">Offering</a>
-            </div>
-          </div>
-        </nav>
-      </aside>
-      <main class="p-5" style="height: 100vh; width: 80%">
-        <header class="mb-5">
-          <div class="d-flex justify-content-between">
-            <h4>@ViewBag.JobTitle</h4>
-            <div
-              class="d-flex justify-content-around align-items-center"
-              style="width: 150px">
-              <span>@ViewBag.AdminName</span>
-              <div
-                class="rounded-circle"
-                style="
-                  width: 40px;
-                  height: 40px;
-                  background-color: #4caf50;
-                "></div>
-            </div>
-          </div>
-        </header>
-        <!-- content -->
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Name</th>
-              <th scope="col">Education</th>
-              <th scope="col">GPA</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Email</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          @foreach (var candidate in Model)
-          {
-            <tbody>
-              <tr>
-                <th scope="row">@counter</th>
-                <td class="fs-6">@candidate.Name</td>
-                <td>@candidate.LastEducation</td>
-                <td>@candidate.GPA</td>
-                <td>@candidate.Phone</td>
-                <td>@candidate.Email</td>
-                <td class="d-flex">
-                  <form action="/Admin/Accept" method="post">
-                    <input type="hidden" name="CandidateId" value= @candidate.CandidateId />
-                    <input type="hidden" name="JobId" value= @ViewBag.JobId />
-                    <button class="btn btn-primary btn-sm" type="submit">Accept</button>
-                  </form>
-                  @* <button
-                    type="button"
-                    class="btn btn-primary btn-sm"
-                    style="margin-left: 5px">
-                    Accept
-                  </button> *@
-                  <button
-                    type="button"
-                    class="btn btn-danger btn-sm"
-                    style="margin-left: 5px">
-                    Reject
-                  </button>
-                  <form action="/Admin/DownloadCV" method="post">
-                    <input type="hidden" name="CandidateId" value= @candidate.CandidateId />
-                    <input type="hidden" name="JobId" value= @ViewBag.JobId />
-                    <button class="btn btn-light btn-sm" type="submit">Download CV</button>
-                  </form>
-                </td>
-              </tr>
-            </tbody> 
-          }
-
-        </table>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <a class="btn btn-primary" type="button" href="hr_interview.html"
-            >Next Process</a
-          >
+        <div class="d-flex flex-column justify-content-around" style="height: 300px">
+        <div>
+            <a class="btn btn-outline-primary btn-sm" href="/CreateJob" style="padding: 15px; border-radius: 50px">
+            <span style="margin: 10px;">+ Create Job</span>
+            </a>
         </div>
-      </main>
-    </div>
+        <div>
+            <a class="nav-link mb-3" href="/Admin">Active Job</a>
+            <a class="nav-link mb-3" href="/Admin/JobClosed">Closed Job</a>
+        </div>
+        </div>
+    </nav>
+    </aside>
+    <main class="p-5" style="height: 100vh; width: 80%">
+    <header class="mb-1">
+        <div class="d-flex justify-content-between align-items-center">
+        <div></div>
+        <div class="d-flex justify-content-around align-items-center" style="width: 150px">
+            <span class="mr-2">@ViewBag.AdminName</span>
+            <div class="rounded-circle" style="width: 40px; height: 40px; background-color: #4CAF50"></div>
+        </div>
+        </div>
+    </header>
+        <div class="py-1">
+            <div class="my-1">
+
+            @using (Html.BeginForm("EditJobs","Admin", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.JobId)
+
+                <div class="mb-3">
+                    <label for="JobPosition" class="form-label">Job Position</label>
+                    @Html.TextBoxFor(m => m.JobTitle, new { @class="form-control"})
+                </div>
+                <div class="mb-3">
+                    <label for="JobDescription" class="form-label">Job Description</label>
+                    @Html.TextAreaFor(m => m.JobDescription, new { @class="form-control"})
+                </div>
+                <div class="mb-3">
+                    <label for="JobRequirement" class="form-label">Job Requirement</label>
+                    @Html.TextAreaFor(m => m.JobRequirement, new { @class="form-control"})
+                </div>
+                <div class="mb-3">
+
+                     <div class="form-group">
+                            <label for="JobExpiredDate" class="form-label">Job Expired Date</label>
+                            <div>
+                                @Html.TextBoxFor(model => model.JobExpiredDate, new { @class = "form-control", @readonly = "readonly", placeholder = "Select Date", id = "datepicker" })
+                                @Html.ValidationMessageFor(model => model.JobExpiredDate, "", new { @class = "text-danger" })
+                            </div>
+                    </div>
+
+                    @* <label for="JobExpiredDate" class="form-label">Job Expired Date</label>
+                    @Html.TextBoxFor(m => m.JobExpiredDate, new { @class="form-control"}) *@
+                </div>
+
+                <div class="mb-3">
+                    <label for="JobRequirement" class="form-label">Office Location</label>  
+                    @Html.DropDownListFor(m => m.Location, new SelectList(dropdownOptions, "Value", "Text"), "Select an option", new { @class = "form-control" })
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary" type="submit">Save Update</button>
+                </div>
+            }
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    flatpickr('#datepicker', {
+        dateFormat: 'Y-m-d',
+        allowInput: true,
+        onClose: function (selectedDates) {
+            // Optional code to perform actions when the date is selected or the picker is closed
+        }
+    });
+</script>

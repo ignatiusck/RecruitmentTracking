@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\xampp2\\htdocs\\RecruitmentTracking\\RecruitmentTracking\\RecruitmentTracking.csproj": {}
+    "c:\\xampp2\\htdocs\\xampp\\RecruitmentTracking\\RecruitmentTracking\\RecruitmentTracking.csproj": {}
   },
   "projects": {
-    "c:\\xampp2\\htdocs\\RecruitmentTracking\\RecruitmentTracking\\RecruitmentTracking.csproj": {
+    "c:\\xampp2\\htdocs\\xampp\\RecruitmentTracking\\RecruitmentTracking\\RecruitmentTracking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\xampp2\\htdocs\\RecruitmentTracking\\RecruitmentTracking\\RecruitmentTracking.csproj",
+        "projectUniqueName": "c:\\xampp2\\htdocs\\xampp\\RecruitmentTracking\\RecruitmentTracking\\RecruitmentTracking.csproj",
         "projectName": "RecruitmentTracking",
-        "projectPath": "c:\\xampp2\\htdocs\\RecruitmentTracking\\RecruitmentTracking\\RecruitmentTracking.csproj",
+        "projectPath": "c:\\xampp2\\htdocs\\xampp\\RecruitmentTracking\\RecruitmentTracking\\RecruitmentTracking.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "c:\\xampp2\\htdocs\\RecruitmentTracking\\RecruitmentTracking\\obj\\",
+        "outputPath": "c:\\xampp2\\htdocs\\xampp\\RecruitmentTracking\\RecruitmentTracking\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

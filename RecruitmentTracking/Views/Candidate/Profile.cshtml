@@ -9,20 +9,22 @@
             <div class="container shadow p-3 mb-5 bg-white rounded mt-5" style="background-color:#f8f9fa ">
             @using(Html.BeginForm("EditProfile", "Candidate", FormMethod.Post))
             {
-                <div class="mt-5">
+                <div class="mt-2">
                     <label for="Name" class="form-label text-muted">Name</label>
                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control rounded-lg"})
-
+                </div>
+                <div class="mt-2">
                     <label for="email" class="form-label text-muted">Email address</label>
                     <input class="form-control rounded-lg" type="text" placeholder="" value="@Model.Email" readonly>
-                   
+                </div>
+                <div class="mt-2">
                     <label for="phone" class="form-label text-muted">Phone Number</label>
                     @Html.TextBoxFor(m => m.Phone, new { @class = "form-control rounded-lg", type="number"})
-
+                </div>
                     <label for="education" class="form-label text-muted">Last Education</label>
                     @Html.TextBoxFor(m => m.LastEducation, new { @class = "form-control rounded-lg"})
-
-                    <label for="GPA" class="form-label">GPA</label>
+                <div class="mt-2">
+                    <label for="GPA" class="form-label text-muted">GPA</label>
                     @Html.TextBoxFor(m => m.GPA, new { @class = "form-control rounded-lg", type = "number", step = "0.01", min = "0", max = "4" })
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">

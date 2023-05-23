@@ -4,76 +4,93 @@
   ViewData["Title"] = "Admin";
 }
 
-<div class="d-flex w-100">
-    <aside
-    class="d-flex justify-content-center py-5 align-items-center vh-100"
-    style="width: 15%;"
-    >
-    <nav class="nav nav-pills flex-column text-center vh-100 py-5">
-        <h5 >Dashboard</h5>
-        <h6 class="mb-5 text-muted">Admin</h6>
+<body>
+  <div class="grid grid-cols-5 h-screen">
+    <!-- Sidebar -->
+    <div class="bg-zinc-900 col-span-1 opacity-90">
+      <!-- Sidebar content -->
+      <nav>
+        <ul class="flex flex-col py-4 mt-5">
+           <li class="px-4 py-2 text-white inline-block">
+            <div class="rounded-full w-20 h-20 bg-gray-300 flex items-center justify-center">
+                <svg class="text-gray-500 w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </div>
+            </li>
+            <li class="px-4 py-2 text-white"> <a href="index.html">@ViewBag.AdminName</a></li>
+            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-house mr-3"></i><a href="/Admin">Home</a></li>
+            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-clock-history mr-3"></i><a href="recruitment_process.html">Recruitment Process</a></li>
+            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-clock-history mr-3"></i><a href="/Admin/CreateJob">Create Job</a></li>
+            <li class="px-4 py-2 text-white border-y-2 border-zinc-700">Contact</li>
+            <li class="btn bg-red-500 text-white hover:bg-red-600">Logout</li>
+        </ul>
+      </nav>
+    </div>
 
-        <div class="d-flex flex-column justify-content-around" style="height: 300px">
-        <div>
-            <a class="btn btn-outline-primary btn-sm" href="Admin/CreateJob" style="padding: 15px; border-radius: 50px">
-            <span style="margin: 10px;">+ Create Job</span>
-            </a>
-        </div>
-        <div>
-            <a class="nav-link active mb-3 disabled" href="/pages/admin/">Active Job</a>
-            <a class="nav-link mb-3" href="Admin/JobClosed">Closed Job</a>
-        </div>
-        </div>
-    </nav>
-    </aside>
-    <main class="p-5" style="height: 100vh; width: 80%">
-    <header class="mb-1">
-        <div class="d-flex justify-content-between align-items-center">
-        <input type="text" class="rounded" />
-        <div class="d-flex justify-content-around align-items-center" style="width: 150px">
-        <span class="mr-2">@ViewBag.AdminName</span>
-            <div class="rounded-circle" style="width: 40px; height: 40px; background-color: #4CAF50"></div>
-        </div>
-        </div>
-    </header>
-    <div class="py-2">
-        <div class="my-4">
+    <!-- Main Content -->
+    <div class="col-span-4">
+      <!-- Main content goes here -->
+      <div class="d-flex ms-3">
+        <main class="p-5" style="height: 100vh; width: 80%">
+          @* <header class="mb-1">
+            <div class="d-flex justify-content-between align-items-center">
+              <input type="text" class="rounded" />
+              <div class="d-flex justify-content-around align-items-center" style="width: 150px">
+                <span class="mr-2">@ViewBag.AdminName</span>
+                <div class="rounded-circle" style="width: 40px; height: 40px; background-color: #4CAF50"></div>
+              </div>
+            </div>
+          </header> *@
+          <div class="py-2 mt-5">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+                <a type="button" class="btn bg-blue-500 text-white hover:bg-blue-600 rounded-lg" href="Admin/CreateJob">Create Job</a></a>
+                <a type="button" class="btn bg-green-500 text-white hover:bg-green-600 rounded-lg "href="/Admin">Active Jobs</a>
+                <a type="button" class="btn bg-zinc-500 text-white hover:bg-zinc-600 rounded-lg ">Archived Jobs</a>
+                <a type="button" class="btn bg-red-500 text-white hover:bg-red-600 rounded-lg" href="Admin/JobClosed">Closed Jobs</a>
+            </div>
+             <div class="my-4">
             @foreach (var item in Model)
             {
-                <div class="card">
+                <div class="card mt-3">
                     <div class="card-body d-flex justify-content-between align-items-center">
-                        <div class="rounded flex-grow-1 bg-light" style="height: 80px; padding: 10px;">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a class="card-title btn btn-outline-primary" style="border: none; padding: 2px; border-radius: 5px"
-                                    href="@Url.Action("Administration", "Admin", new { id = item.JobId })">
-                                    @item.JobTitle
-                                </a>
-                                <p class="list-inline-item text-muted h3">@item.CandidateCout</p>
-                            </div>
-                            <div class="d-flex card-text justify-content-between align-items-center text-muted" style="font-size: .875em;">
-                                <p class="list-inline-item" style="padding-left: 2px;">Post : @item.JobPostedDate</p>
-                                <p class="list-inline-item">@item.Location</p>
-                            </div>
-                        
+                      <div class="rounded flex-grow-1 bg-light" style="height: 80px; padding: 10px;">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <a class="card-title btn btn-outline-primary list-inline-item" style="border: none; padding: 2px; border-radius: 5px"
+                                href="@Url.Action("Administration", "Admin", new { id = item.JobId })">
+                                @item.JobTitle
+                            </a>
+                            <p class="list-inline-item text-muted h3">@item.CandidateCout</p>
+                          </div>
+                          
+                          <div class="d-flex card-text justify-content-between align-items-center text-muted" style="font-size: .875em;">
+                              <p class="list-inline-item" style="padding-left: 2px;">Post : @item.JobPostedDate</p>
+                              <p class="list-inline-item">@item.Location</p>
+                          </div>
+                      
+                      </div>
+                      <div>
+                        <div class="d-flex my-2" style="padding-left: 10px;">
+                          <a class="btn bg-amber-500 text-white hover:bg-amber-600 rounded-lg me-2" href="@Url.Action("EditJob", "Admin", new { id = item.JobId })">Edit</a>
+                          <form action="/Admin/DeleteJob" method="post" onsubmit="return confirm('Are you sure you want delete the Job?')">
+                              <input type="hidden" name="id" value= @item.JobId />
+                              <button class="btn bg-red-500 text-white hover:bg-red-600 rounded-lg" type="submit" >Delete</button>
+                          </form>
+                          <form action="/Admin/ActivateTheJob" method="post">
+                              <input type="hidden" name="id" value= @item.JobId />
+                              <button class="btn btn-light btn-sm me-2" type="submit">Activate</button>
+                          </form>
                         </div>
-                        <div>
-                            <div class="d-flex" style="padding-left: 10px;">
-                                <a class="btn btn-warning me-2" href="@Url.Action("EditJob", "Admin", new { id = item.JobId })">Edit</a>
-
-                                <form action="/Admin/CloseTheJob" method="post" onsubmit="return confirm('Are you sure you want to close the registration?')">
-                                    <input type="hidden" name="id" value= @item.JobId />
-                                    <button class="btn btn-dark me-2" type="submit">Close</button>
-                                </form>
-                            </div>
-                            <div class="container d-flex align-items-center p-2">
-                                <span class="text-center align-bottom text-muted" style="font-size: .875em; margin: auto;">Administration</span>
-                            </div>
+                        <div class="container d-flex align-items-center p-2">
+                          <span class="text-center align-bottom text-muted" style="font-size: .875em; margin: auto;">Administration</span>
                         </div>
-                        
+                      </div>
                     </div>
-                </div>
+             </div>
             }
-        </div>
-    </main>
-</div>
-
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>

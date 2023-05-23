@@ -7,35 +7,35 @@
 <div class = "container" style="justify-content: center; padding-top: 70pt;">
     <div class = "row" >
         <div class = "col-md-4 offset-md-4 shadow-lg p-3 mb-5 bg-white rounded">
-            <h4 style="text-align:center">Create your account</h4>
+            <h4 style="text-align:center" class=" font-bold text-xl">Create your account</h4>
                 @using (Html.BeginForm("Signups", "Authenticator", FormMethod.Post))
                 {
-                    <div class="mb-3 mt-5">
-                        <label for="name" class="form-label">Full Name</label>
+                    <div class="mb-2 mt-3">
+                        <label for="name" class="form-label text-muted">Full Name</label>
                         @Html.TextBoxFor(m => m.Name, new { @class="form-control"})
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        @Html.TextBoxFor(m => m.Email, new { @class="form-control"})
+                    <div class="mb-2">
+                        <label for="email" class="form-label text-muted">Email address</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class="form-control", Type="email"})
                     </div>
 
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                    <div class="mb-2">
+                        <label for="password" class="form-label text-muted">Password</label>
                         @Html.PasswordFor(m => m.Password, new { @class="form-control"})
                     </div>
 
-                     <div class="mb-3">
-                        <label for="password" class="form-label">Confirm password</label>
+                     <div class="mb-2">
+                        <label for="password" class="form-label text-muted">Confirm password</label>
                         @Html.PasswordFor(m => m.ConfirmPassword, new { @class="form-control"})
                     </div>
 
-                    <div class="mb-3">
-                        <a href = "forgot-password.php" style="text-decoration: none">Forgot password?</a>
+                    <div class="mb-2">
+                        <a href  class="text-sm text-muted" "forgot-password.php" style="text-decoration: none">Forgot password?</a>
                     </div>
 
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary mt-3" type="submit">Sign Up</button>
+                        <button class="btn text-white bg-amber-500 hover:bg-amber-600 me-2 rounded-lg mt-3" type="submit">Sign up</button>
                     </div>
                 }
                 <div>

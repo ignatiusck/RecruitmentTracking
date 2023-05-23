@@ -33,7 +33,7 @@
             <div class="navbar-collapse collapse" id="navbar">
                 <div class="navbar-nav">
                     <a class="nav-link text-white hover:disabled" href="/">Jobs</a>
-                    <a class="nav-link text-white hover:disabled" aria-current="page" href="https://formulatrix.com/">About Us</a>
+                    <a class="nav-link text-white hover:disabled" aria-current="page" href="https://formulatrix.com/">About us</a>
                 </div>
             </div>
             <div class="d-flex">
@@ -52,11 +52,11 @@
                                 Name User
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item hover:bg-amber-600" href="/Profile">My Profile</a></li>
-                                <li><a class="dropdown-item hover:bg-amber-600" href="/TrackJob">My Application</a></li>
+                                <li><a class="dropdown-item hover:bg-amber-600 hover:text-white" href="/Profile">My Profile</a></li>
+                                <li><a class="dropdown-item hover:bg-amber-600 hover:text-white" href="/TrackJob">My Application</a></li>
                                 <li>
                                     <form id="logoutForm" method="post" asp-action="Logout" asp-controller="Authenticator">
-                                         <button type="submit" class="btn rounded w-full text-white bg-amber-500 hover:bg-amber-600">Logout</button>
+                                         <button type="submit" class="dropdown-item w-full text-white bg-amber-500 hover:bg-amber-600">Logout</button>
                                     </form>
                                 </li>
                             </ul>
@@ -111,6 +111,15 @@
     </script>
     
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script>
+    flatpickr('#datepicker', {
+        dateFormat: 'Y-m-d',
+        allowInput: true,
+        onClose: function (selectedDates) {
+            // Optional code to perform actions when the date is selected or the picker is closed
+        }
+    });
+</script>
     <script src="~/js/site.js" asp-append-version="true"></script>
         @await RenderSectionAsync("Scripts", required: false)
 </body>
