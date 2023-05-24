@@ -4,59 +4,25 @@
   ViewData["Title"] = "Admin";
 }
 
-<body>
-  <div class="grid grid-cols-5 h-screen">
-    <!-- Sidebar -->
-    <div class="bg-zinc-900 col-span-1 opacity-90">
-      <!-- Sidebar content -->
-      <nav>
-        <ul class="flex flex-col py-4 mt-5">
-           <li class="px-4 py-2 text-white inline-block">
-            <div class="rounded-full w-20 h-20 bg-gray-300 flex items-center justify-center">
-                <svg class="text-gray-500 w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </div>
-            </li>
-            <li class="px-4 py-2 text-zinc-200 mb-3 font-bold mb-3"> <a href="index.html">@ViewBag.AdminName</a></li>
-            <li class="px-4 py-2 text-zinc-200 border-t-2 border-zinc-700 "><i class="bi bi-house mr-3"></i><a href="/Admin">Home</a></li>
-            <li class="px-4 py-2 text-zinc-200 border-t-2 border-zinc-700 "><i class="bi bi-clock-history mr-3"></i><a href="recruitment_process.html">Recruitment Process</a></li>
-            <li class="px-4 py-2 text-zinc-200 border-y-2 border-zinc-700 "><i class="bi bi-list-check mr-3"></i><a href="/Admin/CreateJob">Create Job</a></li>
-            <li class="btn bg-red-500 text-zinc-200 hover:bg-red-600 mt-5 flex justify-center">Logout</li>
-        </ul>
-      </nav>
-    </div>
-
-    <!-- Main Content -->
-    <div class="col-span-4">
-      <!-- Main content goes here -->
-      <div class="d-flex ms-3">
-        <main class="p-5" style="height: 100vh; width: 80%">
-          @* <header class="mb-1">
-            <div class="d-flex justify-content-between align-items-center">
-              <input type="text" class="rounded" />
-              <div class="d-flex justify-content-around align-items-center" style="width: 150px">
-                <span class="mr-2">@ViewBag.AdminName</span>
-                <div class="rounded-circle" style="width: 40px; height: 40px; background-color: #4CAF50"></div>
-              </div>
-            </div>
-          </header> *@
-          <div class="py-2 mt-5">
+<main class="container flex-1 bg-gray-100 p-8 mt-5">
+          <div class="mb-4">
+            <div class="py-2">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                <a type="button" class="btn bg-blue-500 text-white hover:bg-blue-600 rounded-lg" href="Admin/CreateJob">Create Job</a></a>
-                <a type="button" class="btn bg-green-500 text-white hover:bg-green-600 rounded-lg "href="/Admin">Active Jobs</a>
-                <a type="button" class="btn bg-zinc-500 text-white hover:bg-zinc-600 rounded-lg ">Archived Jobs</a>
-                <a type="button" class="btn bg-red-500 text-white hover:bg-red-600 rounded-lg" href="Admin/JobClosed">Closed Jobs</a>
+              <button type="button" class="btn bg-blue-500 text-white hover:bg-blue-600 rounded-lg"><a href="Admin/CreateJob">Create Job</a></button>
+                <button type="button" class="btn bg-green-500 text-white hover:bg-green-600 rounded-lg " href="">Active Jobs</button>
+                  <button type="button" class="btn bg-zinc-500 text-white hover:bg-zinc-600 rounded-lg "href="">Archived Jobs</button>
+                <button type="button" class="btn bg-red-500 text-white hover:bg-red-600 rounded-lg " href="/Admin/JobCLosed">Closed Jobs</button>
             </div>
-             <div class="my-4">
-            @foreach (var item in Model)
-            {
-                <div class="card mt-3">
-                    <div class="card-body d-flex justify-content-between align-items-center">
+            <div class="card mt-2">
+              <div class="card-body">
+                @foreach (var item in Model)
+                {
+                <div class="card mt-2">
+                    <div class="card-body d-flex justify-content-between align-items-center flex-grow">
                       <div class="rounded flex-grow-1 bg-light" style="height: 80px; padding: 10px;">
                           <div class="d-flex justify-content-between align-items-center">
                             <a class="card-title btn btn-outline-primary list-inline-item font-bold text-xl" style="border: none; padding: 2px; border-radius: 5px"
-                                href="@Url.Action("RecruitmentProcess", "Admin", new { id = item.JobId })">
+                                href="@Url.Action("Administration", "Admin", new { id = item.JobId })">
                                 @item.JobTitle
                             </a>
                             <p class="list-inline-item text-muted h3">@item.CandidateCout</p>
@@ -83,9 +49,9 @@
                     </div>
              </div>
             }
+              </div>
+            </div>
+
           </div>
         </main>
-      </div>
-    </div>
-  </div>
-</body>
+ </div>

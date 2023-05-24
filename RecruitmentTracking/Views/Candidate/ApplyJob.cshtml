@@ -2,6 +2,14 @@
 
 @{
     ViewData["Title"] = "Apply Job";
+    var dropdownOptions = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Doctorate", Text = "Doctorate" },
+        new SelectListItem { Value = "Master's Degree", Text = "Master's Degree" },
+        new SelectListItem { Value = "Bachelor's Degree", Text = "Bachelor's Degree" },
+        new SelectListItem { Value = "Diploma", Text = "Diploma" },
+        new SelectListItem { Value = "SMA/SMK", Text = "SMA/SMK"}
+    };
 }
 
           <!-- content for apply job form -->
@@ -23,8 +31,8 @@
                     <label for="phone" class="form-label">Phone Number</label>
                     @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", type = "number" })
                 
-                    <label for="education" class="form-label">Last Education</label>
-                    @Html.TextBoxFor(m => m.LastEducation, new { @class = "form-control"})
+                    <label for="education" class="form-label text-muted mt-2">Last Education</label>
+                    @Html.DropDownListFor(m => m.LastEducation, new SelectList(dropdownOptions, "Value", "Text"), "Select an option", new { @class = "form-control round-lg" })
                
                    <label for="GPA" class="form-label">GPA</label>
                     @Html.TextBoxFor(m => m.GPA, new { @class = "form-control rounded-lg", type = "number", step = "0.01", min = "0", max = "4" })

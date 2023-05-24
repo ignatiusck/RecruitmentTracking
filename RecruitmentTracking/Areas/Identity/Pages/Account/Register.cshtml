@@ -11,11 +11,12 @@
 <div class = "container" style="justify-content: center; padding-top: 40pt;">
     <div class = "row" >
         <div class = "col-md-4 offset-md-4 shadow-lg nt-5 p-3 mb-5 mt-4 bg-white rounded">
-            <h4 style="text-align:center" class=" font-bold text-xl">Create your account</h4>
+            <h4 style="text-align:center" class=" font-bold text-xl mb-3">Create your account</h4>
+
                 
                 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                         <hr/>
-                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        
 
                         @* di bawah ini untuk Full Name, tapi masih salah di asp-for nya *@
                         @* <div class="mb-3 mt-5">
@@ -28,7 +29,7 @@
 
 
                         @* di bawah ini untuk Email, tapi masih salah di asp-for nya *@
-                        <div class="mb-2">
+                        <div class="mb-3 mt-3">
                             <label asp-for="Input.Email" class="form-label">Email</label>
                             <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="example@gmail.com" />
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
@@ -38,7 +39,7 @@
 
 
                         @* di bawah ini untuk Password*@
-                        <div class="mb-2">
+                        <div class="mt-3">
                             <label asp-for="Input.Password" class="form-label">Password</label>
                             <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -47,7 +48,7 @@
                         </div>
 
                         @* di bawah ini untuk Confirm Password*@
-                        <div class="mb-2">
+                        <div class="mt-3">
                             <label asp-for="Input.ConfirmPassword" class="form-label">Confirm Password</label>
                             <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="confirm password" />
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -58,6 +59,7 @@
                         <div class="d-grid gap-2">
                             <button class="btn text-white bg-amber-500 hover:bg-amber-600 me-2 rounded-lg mt-3" type="submit">Register</button>
                         </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                 </form>
 
                 <div>

@@ -12,14 +12,14 @@
   <div class = "container" style="justify-content: center; padding-top: 70pt;">
       <div class = "row" >
           <div class = "col-md-4 offset-md-4 shadow-lg p-3 mb-5 bg-white rounded">
-             <h4 style="text-align:center" class=" font-bold text-xl">Sign in to your account</h4>
+             <h4 style="text-align:center" class=" font-bold text-xl mb-3">Sign in to your account</h4>
 
                 <form id="account" method="post">
 
                     <hr />
-                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    
 
-                    <div class="mb-3 mt-5">
+                    <div class="mb-3 mt-3">
                         <label asp-for="Input.Email" class="form-label">Email</label>
                         <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
@@ -34,6 +34,7 @@
 
                     <div class="d-grid gap-2">
                       <button class="btn text-white bg-amber-500 hover:bg-amber-600 me-2 rounded-lg mt-3" type="submit">Login</button>
+                      <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                     </div>
 
                 </form>

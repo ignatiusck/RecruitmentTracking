@@ -2,6 +2,14 @@
 
 @{
     ViewData["Title"] = "Edit Profile";
+    var dropdownOptions = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Doctorate", Text = "Doctorate" },
+        new SelectListItem { Value = "Master's Degree", Text = "Master's Degree" },
+        new SelectListItem { Value = "Bachelor's Degree", Text = "Bachelor's Degree" },
+        new SelectListItem { Value = "Diploma", Text = "Diploma" },
+        new SelectListItem { Value = "SMA/SMK", Text = "SMA/SMK"}
+    };
 }
 
           <!-- content for edit profile -->
@@ -22,8 +30,10 @@
                     <label for="phone" class="form-label text-muted">Phone Number</label>
                     @Html.TextBoxFor(m => m.Phone, new { @class = "form-control rounded-lg", type="number"})
                 </div>
+                <div class="mt-2">
                     <label for="education" class="form-label text-muted">Last Education</label>
-                    @Html.TextBoxFor(m => m.LastEducation, new { @class = "form-control rounded-lg"})
+                    @Html.DropDownListFor(m => m.LastEducation, new SelectList(dropdownOptions, "Value", "Text"), "Select an option", new { @class = "form-control round-lg" })
+                </div>
                 <div class="mt-2">
                     <label for="GPA" class="form-label text-muted">GPA</label>
                     @Html.TextBoxFor(m => m.GPA, new { @class = "form-control rounded-lg", type = "number", step = "0.01", min = "0", max = "4" })
