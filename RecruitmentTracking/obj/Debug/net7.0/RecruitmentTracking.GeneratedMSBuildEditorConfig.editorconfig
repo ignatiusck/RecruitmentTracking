@@ -44,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT2ZmZXJpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/PreviewJob.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJldmlld0pvYi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/xampp2/htdocs/xampp/RecruitmentTracking/RecruitmentTracking/Views/Admin/RecruitmentProcess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjcnVpdG1lbnRQcm9jZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

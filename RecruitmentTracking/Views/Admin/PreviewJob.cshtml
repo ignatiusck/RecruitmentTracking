@@ -1,0 +1,70 @@
+@model JobData;
+
+@{
+    ViewData["Title"] = "Admin";
+    var dropdownOptions = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Salatiga", Text = "Salatiga" },
+        new SelectListItem { Value = "Semarang", Text = "Semarang" },
+        new SelectListItem { Value = "Bandung", Text = "Bandung" }
+    };
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+ <div class="grid grid-cols-5 h-screen">
+    <div class="col-span-4">
+        <div class="container shadow p-3 mb-5 bg-white rounded mt-5" style="background-color:#f8f9fa ">
+            <div class="d-flex">
+            <main class="p-5 mt-5" style="height: 100vh; width: 80%">
+                <div class="py-1">
+                    <div class="my-1">
+
+                    @using (Html.BeginForm("PreviewJob","Admin", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(m => m.JobId)
+
+                        <div class="mb-3">
+                            <label for="JobPosition" class="form-label">Job Position</label>
+                            @Html.TextBoxFor(m => m.JobTitle, new { @class="form-control round-lg"})
+                        </div>
+                        <div class="mb-3">
+                            <label for="JobDescription" class="form-label">Job Description</label>
+                            @Html.TextAreaFor(m => m.JobDescription, new { @class="form-control round-lg"})
+                        </div>
+                        <div class="mb-3">
+                            <label for="JobRequirement" class="form-label">Job Requirement</label>
+                            @Html.TextAreaFor(m => m.JobRequirement, new { @class="form-control round-lg"})
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-group">
+                                <label for="JobExpiredDate" class="form-label">Job Expired Date</label>
+                                <div>
+                                    @Html.TextBoxFor(model => model.JobExpiredDate, new { @class = "form-control round-lg", @readonly = "readonly", placeholder = "Select Date", id = "datepicker" })
+                                    @Html.ValidationMessageFor(model => model.JobExpiredDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @* <label for="JobExpiredDate" class="form-label">Job Expired Date</label>
+                            @Html.TextBoxFor(m => m.JobExpiredDate, new { @class="form-control"}) *@
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="JobRequirement" class="form-label">Office Location</label>  
+                            @Html.DropDownListFor(m => m.Location, new SelectList(dropdownOptions, "Value", "Text"), "Select an option", new { @class = "form-control" })
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn bg-green-500 text-white hover:bg-green-600 rounded-lg" type="submit">Preview</button>
+                            <button class="btn bg-blue-500 text-white hover:bg-blue-600 rounded-lg" type="submit">Save Update</button>
+                        </div>
+                    }
+
+                    </div>
+                </div>
+            </main>
+            </div>
+        </div>
+    </div>
+</div>

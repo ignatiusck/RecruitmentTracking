@@ -18,12 +18,11 @@
                 </svg>
             </div>
             </li>
-            <li class="px-4 py-2 text-white"> <a href="index.html">@ViewBag.AdminName</a></li>
-            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-house mr-3"></i><a href="/Admin">Home</a></li>
-            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-clock-history mr-3"></i><a href="recruitment_process.html">Recruitment Process</a></li>
-            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-list-check mr-3"></i><a href="/Admin/CreateJob">Create Job</a></li>
-            <li class="px-4 py-2 text-white border-y-2 border-zinc-700">Contact</li>
-            <li class="btn bg-red-500 text-white hover:bg-red-600">Logout</li>
+            <li class="px-4 py-2 text-zinc-200 font-bold mb-3"> <a href="index.html">@ViewBag.AdminName</a></li>
+            <li class="px-4 py-2 text-zinc-200 border-t-2 border-zinc-700"><i class="bi bi-house mr-3"></i><a href="/Admin">Home</a></li>
+            <li class="px-4 py-2 text-zinc-200 border-t-2 border-zinc-700"><i class="bi bi-clock-history mr-3"></i><a href="recruitment_process.html">Recruitment Process</a></li>
+            <li class="px-4 py-2 text-zinc-200 border-t-2 border-zinc-700"><i class="bi bi-list-check mr-3"></i><a href="/Admin/CreateJob">Create Job</a></li>
+            <li class="btn bg-red-500 text-zinc-200 hover:bg-red-600 mt-5">Logout</li>
         </ul>
       </nav>
     </div>
@@ -44,10 +43,10 @@
           </header> *@
           <div class="py-2 mt-5">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-               <a type="button" class="btn bg-blue-500 text-white hover:bg-blue-600 rounded-lg" href="Admin/CreateJob">Create Job</a></a>
+               <a type="button" class="btn bg-blue-500 text-white hover:bg-blue-600 rounded-lg" href="/Admin/CreateJob">Create Job</a></a>
                 <a type="button" class="btn bg-green-500 text-white hover:bg-green-600 rounded-lg "href="/Admin">Active Jobs</a>
                 <a type="button" class="btn bg-zinc-500 text-white hover:bg-zinc-600 rounded-lg ">Archived Jobs</a>
-                <a type="button" class="btn bg-red-500 text-white hover:bg-red-600 rounded-lg" href="Admin/JobClosed">Closed Jobs</a>
+                <a type="button" class="btn bg-red-500 text-white hover:bg-red-600 rounded-lg" href="/Admin/JobClosed">Closed Jobs</a>
             </div>
             <div class="my-4">
               @foreach (var item in Model)

@@ -18,12 +18,11 @@
                 </svg>
             </div>
             </li>
-            <li class="px-4 py-2 text-white"> <a href="index.html">@ViewBag.AdminName</a></li>
-            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-house mr-3"></i><a href="/Admin">Home</a></li>
-            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-clock-history mr-3"></i><a href="recruitment_process.html">Recruitment Process</a></li>
-            <li class="px-4 py-2 text-white border-t-2 border-zinc-700"><i class="bi bi-list-check mr-3"></i><a href="/Admin/CreateJob">Create Job</a></li>
-            <li class="px-4 py-2 text-white border-y-2 border-zinc-700">Contact</li>
-            <li class="btn bg-red-500 text-white hover:bg-red-600">Logout</li>
+            <li class="px-4 py-2 text-zinc-200 mb-3 font-bold mb-3"> <a href="index.html">@ViewBag.AdminName</a></li>
+            <li class="px-4 py-2 text-zinc-200 border-t-2 border-zinc-700 "><i class="bi bi-house mr-3"></i><a href="/Admin">Home</a></li>
+            <li class="px-4 py-2 text-zinc-200 border-t-2 border-zinc-700 "><i class="bi bi-clock-history mr-3"></i><a href="recruitment_process.html">Recruitment Process</a></li>
+            <li class="px-4 py-2 text-zinc-200 border-y-2 border-zinc-700 "><i class="bi bi-list-check mr-3"></i><a href="/Admin/CreateJob">Create Job</a></li>
+            <li class="btn bg-red-500 text-zinc-200 hover:bg-red-600 mt-5 flex justify-center">Logout</li>
         </ul>
       </nav>
     </div>
@@ -72,11 +71,10 @@
                       <div>
                         <div class="d-flex my-2" style="padding-left: 10px;">
                           <a class="btn bg-amber-500 text-white hover:bg-amber-600 rounded-lg me-2" href="@Url.Action("EditJob", "Admin", new { id = item.JobId })">Edit</a>
-                          <form action="/Admin/DeleteJob" method="post" onsubmit="return confirm('Are you sure you want delete the Job?')">
-                              <input type="hidden" name="id" value= @item.JobId />
-                              <button class="btn bg-red-500 text-white hover:bg-red-600 rounded-lg" type="submit" >Delete</button>
-                          </form>
-                          
+                            <form action="/Admin/CloseTheJob" method="post" onsubmit="return confirm('Are you sure you want to close the registration?')">
+                                <input type="hidden" name="id" value= @item.JobId />
+                                <button class="btn bg-blue-500 text-white hover:bg-blue-600 rounded-lg me-2" type="submit">Close</button>
+                            </form>
                         </div>
                         <div class="container d-flex align-items-center p-2">
                           <span class="text-center align-bottom text-muted" style="font-size: .875em; margin: auto;">Administration</span>
