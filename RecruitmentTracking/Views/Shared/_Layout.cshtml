@@ -24,33 +24,40 @@
 
     <!-- navbar -->
     <nav class="navbar bg-dark navbar-expand-lg bg-zinc-900 opacity-80 fixed-top" data-bs-theme="dark">
-    <div class="container-fluid px-5">
-      <a class="navbar-brand text-white font-bold" href="/">Formulatrix Career</a>
+      <div class="container-fluid px-5">
+
+        <a class="navbar-brand text-white font-bold" href="/">Formulatrix Career</a>
+        
             <button class="navbar-toggler" id="navButton" onclick="handleClick()" type="button" title="navbarButton"
                 aria-expanded="false">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="navbar-collapse collapse" id="navbar">
                 <div class="navbar-nav">
                     <a class="nav-link text-white hover:disabled" href="/">Jobs</a>
                     <a class="nav-link text-white hover:disabled" aria-current="page" href="https://formulatrix.com/">About us</a>
                 </div>
             </div>
+
             <div class="d-flex">
                 @if(User.Identity.IsAuthenticated)
                 {
                         <div class="dropdown">
                             <button class="btn btn bg-amber-500 text-white hover:bg-amber-600 rounded-lg dropdown-toggle" type="button"
                                 id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Name User
+                                @User.Identity.Name
                             </button>
                             
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item hover:bg-amber-600 hover:text-white" href="/Profile">My Profile</a></li>
                                 <li><a class="dropdown-item hover:bg-amber-600 hover:text-white" href="/TrackJob">My Application</a></li>
                                 <li>
-                                    <form id="logoutForm" method="post" asp-action="Logout" asp-controller="Authenticator">
-                                         <button type="submit" class="dropdown-item w-full text-white bg-amber-500 hover:bg-amber-600">Logout</button>
+                                    @* <form id="logoutForm" method="post" asp-action="Logout" asp-controller="Authenticator">
+                                         <button type="submit" class="dropdown-item w-full text-white bg-amber-500 hover:bg-amber-600" href="/Identity/Account/Logout">Logout</button>
+                                    </form> *@
+                                    <form id="logoutForm" class="dropdown-item w-full text-white bg-amber-500 hover:bg-amber-600" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="dropdown-item w-full text-white bg-amber-500 hover:bg-amber-600">Logout</button>
                                     </form>
                                 </li>
                             </ul>
@@ -61,10 +68,9 @@
                     <a class="btn text-white bg-amber-500 hover:bg-amber-600 me-2 rounded-lg" href="/Identity/Account/Login">Login</a>
                     <a class="btn text-white border-2 border-amber-500 text-amber-500 hover:bg-amber-500 rounded-lg" href="/Identity/Account/Register">Register</a>
                 }
-                </div>
             </div>
-        </nav>
-
+      </div>
+    </nav>
     <!-- navbar -->
 
     <div class="container-fluid px-5 mt-5">

@@ -5,29 +5,104 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+@* <h1>@ViewData["Title"]</h1> *@
 
-<div class="row">
+<!-- add square box to wrap login form -->
+<div class = "container" style="justify-content: center; padding-top: 40pt;">
+    <div class = "row" >
+        <div class = "col-md-4 offset-md-4 shadow-lg p-3 mb-5 bg-white rounded">
+            <h4 style="text-align:center" class=" font-bold text-xl">Create your account</h4>
+                
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <hr/>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                        @* di bawah ini untuk Full Name, tapi masih salah di asp-for nya *@
+                        <div class="mb-3 mt-5">
+                            <label class="form-label">Full Name</label>
+                            <input class="form-control" autocomplete="username" aria-required="true" placeholder="John Doe" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            @* <label for="name" class="form-label text-muted">Full Name</label> *@
+                            @* @Html.TextBoxFor(m => m.Name, new { @class="form-control"}) *@
+                        </div>
+
+
+                        @* di bawah ini untuk Email, tapi masih salah di asp-for nya *@
+                        <div class="mb-2">
+                            <label asp-for="Input.Email" class="form-label">Email</label>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="example@gmail.com" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            @* <label for="email" class="form-label text-muted">Email address</label> *@
+                            @* @Html.TextBoxFor(m => m.Email, new { @class="form-control", Type="email"}) *@
+                        </div>
+
+
+                        @* di bawah ini untuk Password*@
+                        <div class="mb-2">
+                            <label asp-for="Input.Password" class="form-label">Password</label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            @* <label for="password" class="form-label text-muted">Password</label> *@
+                            @* @Html.PasswordFor(m => m.Password, new { @class="form-control"}) *@
+                        </div>
+
+                        @* di bawah ini untuk Confirm Password*@
+                        <div class="mb-2">
+                            <label asp-for="Input.ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="confirm password" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            @* <label for="password" class="form-label text-muted">Confirm password</label> *@
+                            @* @Html.PasswordFor(m => m.ConfirmPassword, new { @class="form-control"}) *@
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn text-white bg-amber-500 hover:bg-amber-600 me-2 rounded-lg mt-3" type="submit">Register</button>
+                        </div>
+                </form>
+
+                <div>
+                    <p class = "mt-3">Already have an account? <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" style="text-decoration: none">Login</a></p>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@* <div class="row">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
             <hr />
+
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
             <div class="form-floating mb-3">
                 <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
                 <label asp-for="Input.Email">Email</label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
+
             <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                 <label asp-for="Input.Password">Password</label>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
+
             <div class="form-floating mb-3">
                 <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
@@ -61,7 +136,11 @@
             }
         </section>
     </div>
-</div>
+</div> *@
+
+
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
